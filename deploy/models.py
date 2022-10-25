@@ -62,16 +62,16 @@ class Department(models.Model):
         return self.depart_name
 
 
-# class UrlGroup(models.Model):
-#     """ URL 分组信息表 """
-#     group_name = models.CharField(verbose_name='分组名称', max_length=32)
-#
-#     def __str__(self):
-#         return self.group_name
-#
-#
-# class UrlBar(models.Model):
-#     """ URL 地址记录信息表 """
-#     url_name = models.CharField(verbose_name='URL名称', max_length=32)
-#     url_address = models.URLField(verbose_name='URL地址')
-#     url_group = models.ForeignKey(verbose_name="URL分组", to="UrlGroup", to_field="id", on_delete=models.CASCADE)
+class UrlGroup(models.Model):
+    """ URL 分组信息表 """
+    group_name = models.CharField(verbose_name='分组名称', max_length=32)
+
+    def __str__(self):
+        return self.group_name
+
+
+class UrlBar(models.Model):
+    """ URL 地址记录信息表 """
+    url_name = models.CharField(verbose_name='URL名称', max_length=32)
+    url_address = models.URLField(verbose_name='URL地址')
+    url_group = models.ForeignKey(verbose_name="URL分组", to="UrlGroup", to_field="id", on_delete=models.CASCADE)
